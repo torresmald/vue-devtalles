@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="showAutor = !showAutor">Toggle Autor</button>
+      <button @click="onAddQuote">Add Quote</button>
+      <span>{{totalQuotes}}</span>
+      <ul>
+        <template v-for="({quote, author}, index) in quotes">
+          <li v-if="author.includes('Harvey')">
+            {{index}} - {{ quote}}
+            <span v-if="showAutor"> {{author }} </span>
+          </li>
+        </template>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./vue.js"></script>
+  </body>
+</html>
